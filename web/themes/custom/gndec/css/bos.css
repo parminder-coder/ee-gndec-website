@@ -128,19 +128,38 @@ h1.page-title::after,
   border-radius: 2px !important;
 }
 
-/* Hide PDF Previews & Viewers */
+/* Hide PDF Previews, Viewers & Standalone Raw Drupal File Attachment Links */
 .bos-page-wrapper iframe,
 .bos-page-wrapper embed,
 .bos-page-wrapper object,
 .bos-page-wrapper canvas,
 .bos-page-wrapper .pdf-preview,
 .view-bos iframe,
-body.path-bos iframe {
+body.path-bos iframe,
+.bos-page-wrapper .field--type-file:not(.doc-card *):not(.views-row *),
+.bos-page-wrapper .field--name-field-document:not(.doc-card *):not(.views-row *),
+.bos-page-wrapper .field--name-field-file:not(.doc-card *):not(.views-row *),
+.bos-page-wrapper span.file:not(.doc-card *):not(.views-row *),
+.bos-page-wrapper .file--mime-application-pdf:not(.doc-card *):not(.views-row *),
+.bos-page-wrapper .file-link:not(.doc-card *):not(.views-row *) {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
   width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
   opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide default Drupal generic file icons inside cards to prevent duplicate icons */
+.doc-card .file-icon,
+.doc-card .file--mime-application-pdf::before,
+.doc-card span.file > img,
+.doc-card span.file > .file-icon,
+.views-row .file-icon,
+.views-row span.file > img {
+  display: none !important;
 }
 
 /* Document List Stack Container */
@@ -251,6 +270,7 @@ div.doc-card::before,
   background-size: 18px 18px !important;
   flex-shrink: 0 !important;
   margin-right: 14px !important;
+  order: 0 !important;
 }
 
 /* Document Title */
@@ -259,7 +279,8 @@ div.doc-card::before,
 .doc-card p,
 .doc-card span,
 .views-field-title,
-.views-field-title a {
+.views-field-title a,
+.views-row .views-field-title {
   font-size: 0.95rem !important;
   font-weight: 500 !important;
   color: #2d3748 !important;
@@ -271,22 +292,28 @@ div.doc-card::before,
   display: inline-flex !important;
   align-items: center !important;
   text-decoration: none !important;
+  order: 1 !important;
 }
 
-/* Right-Aligned Action Link */
+/* Right-Aligned Action Link Container */
 .views-field-field-document,
 .views-field-file,
+.field--name-field-document,
 .doc-card .link-wrapper {
   margin-left: auto !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: flex-end !important;
   white-space: nowrap !important;
   flex-shrink: 0 !important;
+  order: 2 !important;
 }
 
+/* Clean View PDF Link */
 .doc-card a,
-.views-row a,
-.views-field-field-document a {
+.views-row a:not(.views-field-title a),
+.views-field-field-document a,
+.field--name-field-document a {
   color: #041e42 !important;
   font-weight: 700 !important;
   font-size: 0.875rem !important;
@@ -298,6 +325,37 @@ div.doc-card::before,
   margin-left: auto !important;
   line-height: 1.2 !important;
   transition: color 0.2s ease !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* Hide extra inline file icons on/next to the View PDF link */
+span.file,
+.file--mime-application-pdf,
+.file-link {
+  background: none !important;
+  padding-left: 0 !important;
+  margin-left: auto !important;
+}
+
+span.file::before,
+span.file::after,
+.file--mime-application-pdf::before,
+.file--mime-application-pdf::after,
+.file-link::before,
+.file-link::after,
+.views-field-field-document img,
+.views-field-file img,
+.field--name-field-document img,
+span.file img,
+span.file .file-icon,
+.file-icon {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: none !important;
+  content: none !important;
 }
 
 .doc-card a:hover,

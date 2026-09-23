@@ -35,64 +35,74 @@
         }
       });
 
-      context.querySelectorAll('.bos-page-wrapper iframe, .view-bos iframe, .views-row iframe, embed, object, .pdf-preview').forEach(function (preview) {
-        if (!preview.closest('header') && !preview.closest('footer')) {
-          preview.style.display = 'none';
-          if (preview.parentNode) {
-            preview.parentNode.removeChild(preview);
-          }
-        }
-      });
+      // Process BOS Document Cards & Rows
+      var cardSelectors = [
+        '.doc-card',
+        'div.doc-card',
+        '.bos-document-card',
+        '.bos-page-wrapper .views-row',
+        '.view-bos .views-row',
+        'body.path-bos .views-row'
+      ].join(', ');
 
-      context.querySelectorAll('.doc-card, div.doc-card, .bos-document-card').forEach(function (card) {
+      var cards = Array.prototype.slice.call(context.querySelectorAll(cardSelectors));
+
+      cards.forEach(function (card) {
+        // Skip outer row wrapper if it contains an inner .doc-card
+        if (card.querySelector('.doc-card')) {
+          return;
+        }
+
+        // Apply flexbox container styles
         card.style.display = 'flex';
         card.style.flexDirection = 'row';
         card.style.alignItems = 'center';
         card.style.justifyContent = 'space-between';
         card.style.width = '100%';
         card.style.maxWidth = '100%';
-      });
 
-      var linkSelectors = [
-        '.bos-page-wrapper a',
-        '.view-bos a',
-        '.view-id-bos a',
-        '.block-views-block--bos a',
-        '.views-element-container a',
-        '.field--name-field-document a',
-        '.field--name-field-file a',
-        '.doc-card a',
-        'a[href*=".pdf"]'
-      ].join(', ');
+        // Look for PDF link inside card first
+        var pdfLink = card.querySelector('a[href*=".pdf"], a[href*="files"], .views-field-field-document a, .views-field-file a, .field--name-field-document a');
 
-      context.querySelectorAll(linkSelectors).forEach(function (link) {
-        if (link.closest('header') || link.closest('footer') || link.closest('.site-branding') || link.closest('.menu--main')) {
-          return;
+        // If not found inside card, search anywhere in the main content container
+        if (!pdfLink) {
+          var mainWrapper = card.closest('.bos-page-wrapper') || card.closest('.main-content-blocks-wrapper') || document.body;
+          pdfLink = mainWrapper.querySelector('a[href*=".pdf"], a[href*="files"], .field--name-field-document a, span.file a');
         }
 
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
+        if (pdfLink) {
+          // Identify wrapper to move (e.g. .views-field-field-document, .field--name-field-document, span.file, or link itself)
+          var wrapperToMove = pdfLink.closest('.views-field-field-document, .views-field-file, .field--name-field-document, span.file') || pdfLink;
 
-        var linkText = link.textContent.trim();
-        if (['View PDF', 'View', 'PDF'].indexOf(linkText) !== -1 || linkText.toLowerCase().indexOf('view') !== -1) {
-          link.innerHTML = 'View PDF &rarr;';
-        } else if (link.href && link.href.indexOf('.pdf') !== -1 && linkText.indexOf('→') === -1) {
-          if (link.closest('.views-field-field-document') || link.closest('.views-field-file') || link.closest('.doc-card')) {
-            link.innerHTML = 'View PDF &rarr;';
+          // Append wrapper inside card at the end (far right side)
+          card.appendChild(wrapperToMove);
+
+          // Format link text cleanly as "View PDF ->"
+          pdfLink.setAttribute('target', '_blank');
+          pdfLink.setAttribute('rel', 'noopener noreferrer');
+          pdfLink.innerHTML = 'View PDF &rarr;';
+          pdfLink.style.display = 'inline-flex';
+          pdfLink.style.alignItems = 'center';
+          pdfLink.style.marginLeft = 'auto';
+          pdfLink.style.whiteSpace = 'nowrap';
+          pdfLink.style.fontWeight = '700';
+          pdfLink.style.color = '#041e42';
+          pdfLink.style.textDecoration = 'none';
+
+          // Clean up inline icons, background images, and extra padding
+          var fileSpan = pdfLink.closest('span.file, .file--mime-application-pdf, .file-link');
+          if (fileSpan) {
+            fileSpan.style.background = 'none';
+            fileSpan.style.padding = '0';
+            fileSpan.style.margin = '0';
+            fileSpan.style.marginLeft = 'auto';
+            fileSpan.querySelectorAll('img, svg, icon, .file-icon').forEach(function (ic) {
+              ic.style.display = 'none';
+            });
           }
         }
-      });
 
-      var cardSelectors = [
-        '.bos-page-wrapper .views-row',
-        '.bos-document-card',
-        '.doc-card',
-        'div.doc-card',
-        '.view-bos .views-row',
-        'body.path-bos .views-row'
-      ].join(', ');
-
-      context.querySelectorAll(cardSelectors).forEach(function (card) {
+        // Add cursor pointer & click listener to card
         var targetLink = card.querySelector('a[href]');
         var hasValidHref = targetLink && targetLink.getAttribute('href') && targetLink.getAttribute('href') !== '#';
 
@@ -109,14 +119,28 @@
           }
         }
 
-        card.addEventListener('click', function (event) {
-          if (!event.target.closest('a')) {
-            var link = card.querySelector('a[href]');
-            if (link && link.getAttribute('href') && link.getAttribute('href') !== '#') {
-              window.open(link.getAttribute('href'), '_blank', 'noopener,noreferrer');
+        if (!card.dataset.bosClickAttached) {
+          card.dataset.bosClickAttached = 'true';
+          card.addEventListener('click', function (event) {
+            if (!event.target.closest('a')) {
+              var link = card.querySelector('a[href]');
+              if (link && link.getAttribute('href') && link.getAttribute('href') !== '#') {
+                window.open(link.getAttribute('href'), '_blank', 'noopener,noreferrer');
+              }
             }
-          }
-        });
+          });
+        }
+      });
+
+      // Hide any remaining standalone raw file links/fields outside cards
+      var mainWrapper = context.querySelector('.bos-page-wrapper') || document.body;
+      mainWrapper.querySelectorAll('.field--type-file, .field--name-field-document, span.file, .file--mime-application-pdf, .file-link').forEach(function (el) {
+        if (!el.closest('.doc-card') && !el.closest('.views-row')) {
+          el.style.display = 'none';
+          el.style.visibility = 'hidden';
+          el.style.height = '0';
+          el.style.opacity = '0';
+        }
       });
     }
   };
