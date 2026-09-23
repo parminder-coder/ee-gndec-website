@@ -67,3 +67,11 @@ guidelines-page-styles:
       css/guidelines.css: { weight: 102 }
   js:
     js/guidelines.js: {}
+
+videos-page-styles:
+  version: 1.x
+  css:
+    theme:
+      css/videos.css: { weight: 102 }
+  js:
+    js/videos.js: {}
