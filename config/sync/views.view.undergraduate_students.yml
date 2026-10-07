@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.student_resource
+    - node.type.undergrad_guideline
   module:
     - node
     - text
@@ -132,7 +132,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            student_resource: student_resource
+            undergrad_guideline: undergrad_guideline
           group: 1
       style:
         type: default

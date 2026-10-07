@@ -1,0 +1,30 @@
+uuid: 0fd85054-010b-48f2-a4e0-b7292b51e778
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bos_document.body
+    - node.type.bos_document
+  module:
+    - text
+    - user
+id: node.bos_document.teaser
+targetEntityType: node
+bundle: bos_document
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
