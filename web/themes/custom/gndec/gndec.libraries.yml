@@ -75,3 +75,19 @@ videos-page-styles:
       css/videos.css: { weight: 102 }
   js:
     js/videos.js: {}
+
+vision-page-styles:
+  version: 1.x
+  css:
+    theme:
+      css/vision.css: { weight: 102 }
+  js:
+    js/vision.js: {}
+
+mou-page-styles:
+  version: 1.x
+  css:
+    theme:
+      css/mou.css: { weight: 102 }
+  js:
+    js/mou.js: {}

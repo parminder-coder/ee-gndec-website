@@ -40,3 +40,49 @@ function gndec_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = 'path-' . Html::cleanCssIdentifier(str_replace('/', '-', $alias_clean));
   }
 }
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function gndec_preprocess_page(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = \Drupal::service('path_alias.manager')->getAliasByPath($path);
+  $alias_clean = trim(strtolower($alias), '/');
+
+  if (str_contains($alias_clean, 'vision') || str_contains($alias_clean, 'po')) {
+    $variables['#attached']['library'][] = 'gndec/vision-page-styles';
+  }
+
+  if (str_contains($alias_clean, 'mou')) {
+    $variables['#attached']['library'][] = 'gndec/mou-page-styles';
+  }
+
+  // Remove system main content block output on custom static/theme pages to prevent 404 messages
+  $custom_pages = ['vision', 'academics/vision', 'mou', 'academics/mou', 'bos', 'academics/bos', 'guidelines', 'academics/guidelines', 'videos', 'academics/videos', 'people'];
+  foreach ($custom_pages as $custom_page) {
+    if (str_contains($alias_clean, $custom_page)) {
+      unset($variables['page']['content']['bootstrap_content']);
+      unset($variables['page']['content']['bootstrap_subtheme_content']);
+      unset($variables['page']['content']['system_main']);
+      unset($variables['page']['content']['gndec_content']);
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function gndec_preprocess_block(&$variables) {
+  if (isset($variables['plugin_id']) && $variables['plugin_id'] === 'system_main_block') {
+    $path = \Drupal::service('path.current')->getPath();
+    $alias = \Drupal::service('path_alias.manager')->getAliasByPath($path);
+    $alias_clean = trim(strtolower($alias), '/');
+
+    if (str_contains($alias_clean, 'vision') || str_contains($alias_clean, 'mou') || str_contains($alias_clean, 'po') || str_contains($alias_clean, 'bos') || str_contains($alias_clean, 'guidelines') || str_contains($alias_clean, 'videos') || str_contains($alias_clean, 'people')) {
+      $variables['content'] = [];
+      $variables['#cache']['max-age'] = 0;
+    }
+  }
+}
+
