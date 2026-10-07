@@ -1,18 +1,11 @@
-uuid: 297a0047-2468-4ca3-a86d-c509d624cc40
+uuid: 59b8e919-d14b-4ac7-a733-4a6d48e6e9da
 langcode: en
 status: true
-dependencies:
-  module:
-    - menu_ui
-third_party_settings:
-  menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
+dependencies: {  }
 name: 'Student Resource'
 type: student_resource
-description: 'Study materials, timetables, and resources for students'
+description: 'Academic documents, syllabus, guidelines, BOS minutes, and forms.'
 help: null
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

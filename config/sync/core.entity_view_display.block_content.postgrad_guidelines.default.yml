@@ -1,0 +1,32 @@
+uuid: 43d81b4f-f5b1-4437-b193-ff7bf8645851
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.postgrad_guidelines
+    - field.field.block_content.postgrad_guidelines.field_pdf
+    - field.field.block_content.postgrad_guidelines.field_pdf_name
+  module:
+    - file
+    - text
+id: block_content.postgrad_guidelines.default
+targetEntityType: block_content
+bundle: postgrad_guidelines
+mode: default
+content:
+  field_pdf:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_pdf_name:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

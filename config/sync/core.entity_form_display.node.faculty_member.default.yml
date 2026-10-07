@@ -1,77 +1,36 @@
-uuid: c88de9ac-98c9-4f44-871c-6bda8352eae6
+uuid: 6e3100fc-d838-41a8-8935-8824e7e6f7ee
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.faculty_member.body
+    - field.field.node.faculty_member.field_designation
     - field.field.node.faculty_member.field_email
-    - field.field.node.faculty_member.field_field_department
-    - field.field.node.faculty_member.field_field_designation
-    - field.field.node.faculty_member.field_field_full_name
-    - field.field.node.faculty_member.field_field_photo
-    - field.field.node.faculty_member.field_phone_number
-    - image.style.thumbnail
+    - field.field.node.faculty_member.field_photo
     - node.type.faculty_member
   module:
-    - image
     - path
+    - text
 id: node.faculty_member.default
 targetEntityType: node
 bundle: faculty_member
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 10
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_email:
-    type: email_default
-    weight: 125
-    region: content
-    settings:
-      placeholder: ''
-      size: 60
-    third_party_settings: {  }
-  field_field_department:
-    type: string_textfield
-    weight: 124
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_field_designation:
-    type: string_textfield
-    weight: 123
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_field_full_name:
-    type: string_textfield
-    weight: 122
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_field_photo:
-    type: image_image
-    weight: 121
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_phone_number:
-    type: string_textfield
-    weight: 126
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   path:
     type: path
@@ -105,5 +64,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_designation: true
+  field_email: true
+  field_photo: true
   promote: true
   sticky: true

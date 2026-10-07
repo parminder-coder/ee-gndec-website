@@ -1,0 +1,31 @@
+uuid: 98960772-ceea-4428-8137-88681d175969
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reach_us
+    - field.field.block_content.reach_us.field_contact_info
+  module:
+    - text
+id: block_content.reach_us.default
+targetEntityType: block_content
+bundle: reach_us
+mode: default
+content:
+  field_contact_info:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

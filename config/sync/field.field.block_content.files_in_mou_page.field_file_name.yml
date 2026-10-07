@@ -1,0 +1,24 @@
+uuid: c13c8888-8e27-4597-b689-45d7cdf621b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.files_in_mou_page
+    - field.storage.block_content.field_file_name
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.files_in_mou_page.field_file_name
+field_name: field_file_name
+entity_type: block_content
+bundle: files_in_mou_page
+label: 'file name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

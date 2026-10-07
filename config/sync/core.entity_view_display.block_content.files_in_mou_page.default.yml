@@ -1,0 +1,32 @@
+uuid: e1fdb4e3-ae89-460d-b52a-f7c47c294680
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.files_in_mou_page
+    - field.field.block_content.files_in_mou_page.field_file_name
+    - field.field.block_content.files_in_mou_page.field_the_file
+  module:
+    - file
+    - text
+id: block_content.files_in_mou_page.default
+targetEntityType: block_content
+bundle: files_in_mou_page
+mode: default
+content:
+  field_file_name:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_the_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

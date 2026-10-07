@@ -1,0 +1,42 @@
+uuid: 8a64e2fe-d126-4144-8456-d2ab147468fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.faculty_card
+    - field.field.block_content.faculty_card.field_img
+    - field.field.block_content.faculty_card.field_info
+    - image.style.thumbnail
+  module:
+    - image
+    - text
+id: block_content.faculty_card.default
+targetEntityType: block_content
+bundle: faculty_card
+mode: default
+content:
+  field_img:
+    type: image_image
+    weight: 26
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_info:
+    type: text_textarea
+    weight: 27
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

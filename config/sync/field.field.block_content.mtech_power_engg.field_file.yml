@@ -1,0 +1,27 @@
+uuid: e294891f-e250-4e78-8cae-c6c39a03aca7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mtech_power_engg
+    - field.storage.block_content.field_file
+  module:
+    - file
+id: block_content.mtech_power_engg.field_file
+field_name: field_file
+entity_type: block_content
+bundle: mtech_power_engg
+label: file
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt docx pdf'
+  max_filesize: ''
+  description_field: false
+field_type: file

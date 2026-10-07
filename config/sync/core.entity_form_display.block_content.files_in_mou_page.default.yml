@@ -1,0 +1,40 @@
+uuid: c1432573-ed52-414e-9483-43cf3048aec3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.files_in_mou_page
+    - field.field.block_content.files_in_mou_page.field_file_name
+    - field.field.block_content.files_in_mou_page.field_the_file
+  module:
+    - file
+    - text
+id: block_content.files_in_mou_page.default
+targetEntityType: block_content
+bundle: files_in_mou_page
+mode: default
+content:
+  field_file_name:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_the_file:
+    type: file_generic
+    weight: 27
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

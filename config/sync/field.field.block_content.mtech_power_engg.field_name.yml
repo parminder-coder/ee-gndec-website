@@ -1,0 +1,19 @@
+uuid: c75efe8a-394b-4696-92d9-49a1e0d96c2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mtech_power_engg
+    - field.storage.block_content.field_name
+id: block_content.mtech_power_engg.field_name
+field_name: field_name
+entity_type: block_content
+bundle: mtech_power_engg
+label: name
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,16 +1,13 @@
-uuid: d866b452-f1f3-4b7c-a13f-562d40973970
+uuid: bb13e654-536a-4bba-a220-d2f61fbfab5c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.student_resource.field_resource_description
-    - field.field.node.student_resource.field_resource_department
-    - field.field.node.student_resource.field_resource_file
-    - field.field.node.student_resource.field_resource_semester
+    - field.field.node.student_resource.body
+    - field.field.node.student_resource.field_document
     - field.field.node.student_resource.field_resource_type
     - node.type.student_resource
   module:
-    - file
     - path
     - text
 id: node.student_resource.default
@@ -18,15 +15,9 @@ targetEntityType: node
 bundle: student_resource
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_resource_description:
+  body:
     type: text_textarea_with_summary
-    weight: 123
+    weight: 121
     region: content
     settings:
       rows: 9
@@ -34,32 +25,9 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-  field_resource_department:
-    type: string_textfield
-    weight: 124
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_resource_file:
-    type: file_generic
-    weight: 122
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  field_resource_semester:
-    type: string_textfield
-    weight: 125
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_resource_type:
-    type: options_select
-    weight: 121
+  created:
+    type: datetime_timestamp
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -95,5 +63,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_document: true
+  field_resource_type: true
   promote: true
   sticky: true

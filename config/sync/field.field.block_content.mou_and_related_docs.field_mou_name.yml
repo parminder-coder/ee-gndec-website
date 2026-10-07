@@ -1,0 +1,24 @@
+uuid: 0c1e4e7e-c49c-4eae-8bbf-3286021c7ed9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mou_and_related_docs
+    - field.storage.block_content.field_mou_name
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.mou_and_related_docs.field_mou_name
+field_name: field_mou_name
+entity_type: block_content
+bundle: mou_and_related_docs
+label: 'mou name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

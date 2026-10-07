@@ -1,0 +1,27 @@
+uuid: 31daa77b-0407-4336-b7ff-3fdc97a1891a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.files_in_mou_page
+    - field.storage.block_content.field_the_file
+  module:
+    - file
+id: block_content.files_in_mou_page.field_the_file
+field_name: field_the_file
+entity_type: block_content
+bundle: files_in_mou_page
+label: 'the file'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt docx pdf gif'
+  max_filesize: ''
+  description_field: false
+field_type: file

@@ -1,0 +1,24 @@
+uuid: 915973a4-d411-41b2-aed0-11cd4cea7ecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.postgrad_guidelines
+    - field.storage.block_content.field_pdf_name
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.postgrad_guidelines.field_pdf_name
+field_name: field_pdf_name
+entity_type: block_content
+bundle: postgrad_guidelines
+label: 'pdf name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long
