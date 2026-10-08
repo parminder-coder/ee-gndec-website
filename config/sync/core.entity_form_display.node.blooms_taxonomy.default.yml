@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.blooms_taxonomy.body
+    - field.field.node.blooms_taxonomy.field_document
     - node.type.blooms_taxonomy
   module:
+    - file
     - path
     - text
 id: node.blooms_taxonomy.default
@@ -28,6 +30,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_document:
+    type: file_generic
+    weight: 122
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   path:
     type: path

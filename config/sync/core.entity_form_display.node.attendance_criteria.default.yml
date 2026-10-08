@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.attendance_criteria.body
+    - field.field.node.attendance_criteria.field_document
     - node.type.attendance_criteria
   module:
+    - file
     - path
     - text
 id: node.attendance_criteria.default
@@ -28,6 +30,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_document:
+    type: file_generic
+    weight: 122
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   path:
     type: path

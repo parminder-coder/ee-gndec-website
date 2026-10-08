@@ -718,28 +718,56 @@ main.main-content-bg.vision-page-wrapper,
 .doc-card,
 .document-card,
 .pdf-card,
-.vision-page-wrapper .doc-card {
+.vision-page-wrapper .doc-card,
+.vision-page-wrapper .views-row:not(:has(.doc-card)) {
   background-color: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 12px !important;
-  padding: 1.25rem 1.6rem !important;
+  border: 1px solid #e5eaf2 !important;
+  border-radius: 8px !important;
+  padding: 14px 20px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 1.25rem !important;
-  margin-top: 1.25rem !important;
-  margin-bottom: 2rem !important;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+  gap: 16px !important;
+  min-height: 62px !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 1.5rem !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
   width: 100% !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
 }
 
 .doc-card:hover,
 .document-card:hover,
-.pdf-card:hover {
+.pdf-card:hover,
+.vision-page-wrapper .views-row:not(:has(.doc-card)):hover {
   border-color: #cbd5e1 !important;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+  box-shadow: 0 4px 12px rgba(4, 30, 66, 0.06) !important;
+}
+
+/* Red PDF Badge Icon on Left of Card */
+.doc-card::before,
+div.doc-card::before,
+.vision-page-wrapper .views-row:not(:has(.doc-card))::before {
+  content: "" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  background-color: #fff1f0 !important;
+  border-radius: 6px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23e74c3c'%3E%3Cpath d='M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5 13 5H9.5V1.5zM4.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 18px 18px !important;
+  flex-shrink: 0 !important;
+  margin-right: 14px !important;
+  order: 0 !important;
 }
 
 .doc-left,
@@ -748,59 +776,67 @@ main.main-content-bg.vision-page-wrapper,
   align-items: center !important;
   gap: 1rem !important;
   flex: 1 1 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .doc-card .icon-wrapper,
 .doc-card .doc-icon,
 .vision-page-wrapper .doc-card .icon-wrapper {
-  min-width: 38px !important;
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 8px !important;
-  background-color: #f1f5f9 !important;
-  color: #64748b !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-}
-
-.doc-card .icon-wrapper svg {
-  stroke: #64748b !important;
-  width: 18px !important;
-  height: 18px !important;
+  display: none !important;
 }
 
 .doc-title,
 .doc-card .doc-title,
 .doc-left p,
-.doc-left .doc-title {
-  color: #0f172a !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
+.doc-left .doc-title,
+.vision-page-wrapper .views-field-title,
+.vision-page-wrapper .views-field-title a,
+.vision-page-wrapper .field--name-title {
+  color: #2d3748 !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
   margin: 0 !important;
-  line-height: 1.4 !important;
+  padding: 0 !important;
+  flex: 1 1 auto !important;
+  line-height: 1.3 !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  order: 1 !important;
 }
 
 .doc-link,
 .doc-card a.doc-link,
 .doc-card a,
-.vision-page-wrapper .doc-link {
-  color: #0f2a4a !important;
+.vision-page-wrapper .doc-link,
+.vision-page-wrapper .views-row a {
+  color: #041e42 !important;
   font-weight: 700 !important;
-  font-size: 0.925rem !important;
+  font-size: 0.875rem !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.4rem !important;
+  gap: 4px !important;
   white-space: nowrap !important;
-  transition: color 0.2s ease, transform 0.2s ease !important;
+  transition: color 0.2s ease !important;
   cursor: pointer !important;
+  margin-left: auto !important;
+  order: 2 !important;
+}
+
+.doc-link::after,
+.doc-card a::after,
+.vision-page-wrapper .views-row a::after {
+  content: " \2192" !important;
+  font-weight: 700 !important;
+  display: inline-block !important;
+  margin-left: 4px !important;
 }
 
 .doc-link:hover,
-.doc-card a:hover {
-  color: #c84c1c !important;
+.doc-card a:hover,
+.vision-page-wrapper .views-row a:hover {
+  color: #0d6efd !important;
   text-decoration: none !important;
 }
 

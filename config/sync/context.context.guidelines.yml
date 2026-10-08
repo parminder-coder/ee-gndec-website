@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - system.menu.main
+    - views.view.attendance_criteria
+    - views.view.blooms_taxonomy
     - views.view.postgraduate_students
     - views.view.undergraduate_students
   content:
-    - 'block_content:pdf:b8ec6193-a2df-4e5e-baa9-df3814ca176e'
-    - 'block_content:pdf:eba2e4b1-4ad1-47c4-9640-b7f4890cc4d1'
     - 'block_content:text_block:05e7da25-4ccb-48f2-88f1-e5d9dad6099f'
     - 'block_content:text_block:2184e7ac-e64b-4647-b3d8-09aabea0f195'
     - 'block_content:text_block:38811c2a-c145-455e-bdf1-3fe3fb4b34b4'
@@ -208,19 +208,20 @@ reactions:
         third_party_settings: {  }
       78bad98b-362f-422c-97e3-a6877786cf51:
         uuid: 78bad98b-362f-422c-97e3-a6877786cf51
-        id: 'block_content:eba2e4b1-4ad1-47c4-9640-b7f4890cc4d1'
-        label: 'attendance criteria pdf'
-        provider: block_content
+        id: 'views_block:attendance_criteria-block_1'
+        label: ''
+        provider: views
         label_display: '0'
         region: content
         weight: '-3'
-        custom_id: block_content_eba2e4b1_4ad1_47c4_9640_b7f4890cc4d1
+        custom_id: views_block_attendance_criteria_block_1
         theme: gndec
         css_class: ''
         unique: 0
         context_id: guidelines
         context_mapping: {  }
-        view_mode: full
+        views_label: ''
+        items_per_page: null
         third_party_settings: {  }
       fb5ae7ec-c139-4b7b-950a-2e8fedd1cf96:
         uuid: fb5ae7ec-c139-4b7b-950a-2e8fedd1cf96
@@ -273,19 +274,20 @@ reactions:
         third_party_settings: {  }
       bbd09bcc-bb07-491a-a880-1097a564238f:
         uuid: bbd09bcc-bb07-491a-a880-1097a564238f
-        id: 'block_content:b8ec6193-a2df-4e5e-baa9-df3814ca176e'
-        label: 'bloom taxonomy pdf'
-        provider: block_content
+        id: 'views_block:blooms_taxonomy-block_1'
+        label: ''
+        provider: views
         label_display: '0'
         region: content
         weight: '-5'
-        custom_id: block_content_b8ec6193_a2df_4e5e_baa9_df3814ca176e
+        custom_id: views_block_blooms_taxonomy_block_1
         theme: gndec
         css_class: ''
         unique: 0
         context_id: guidelines
         context_mapping: {  }
-        view_mode: full
+        views_label: ''
+        items_per_page: null
         third_party_settings: {  }
       c0bc4e57-4328-4f38-bfd1-b7d201376d12:
         uuid: c0bc4e57-4328-4f38-bfd1-b7d201376d12

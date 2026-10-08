@@ -180,40 +180,58 @@ body.path-academics-guidelines h2::before {
 
 /* Document List Stack Container for Views */
 .guidelines-page-wrapper .views-element-container,
+.guidelines-page-wrapper .view,
 .guidelines-page-wrapper .view-content,
-.guidelines-page-wrapper .views-view-grid {
+.guidelines-page-wrapper .views-view-grid,
+.guidelines-page-wrapper .block,
+.guidelines-page-wrapper .block-views-block,
+.guidelines-page-wrapper .field--name-body,
+.guidelines-page-wrapper .field--name-field-document,
+.guidelines-page-wrapper .field__item {
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  gap: 12px !important;
-  margin-bottom: 1.5rem !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
+  margin-bottom: 12px !important;
 }
 
-/* Outer Row Reset if nested container exists */
-.guidelines-page-wrapper .views-row:has(.doc-card),
-.guidelines-page-wrapper .views-row:has(div.doc-card) {
+/* Outer Row & Field Container Reset (Prevents Outer Box Wrapping) */
+body.path-guidelines .views-row,
+body.path-academics-guidelines .views-row,
+.guidelines-page-wrapper .views-row,
+.guidelines-page-wrapper .views-field,
+.guidelines-page-wrapper .views-field-body,
+.guidelines-page-wrapper .field-content {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
-  margin-bottom: 12px !important;
+  margin: 0 0 12px 0 !important;
   width: 100% !important;
-  display: block !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+  align-self: stretch !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
 }
 
-.guidelines-page-wrapper .views-row:has(.doc-card)::before,
-.guidelines-page-wrapper .views-row:has(div.doc-card)::before {
+body.path-guidelines .views-row::before,
+body.path-academics-guidelines .views-row::before,
+.guidelines-page-wrapper .views-row::before {
   display: none !important;
   content: none !important;
 }
 
-/* Single Document Card Item (Matching BOS Page Layout) */
+/* Single Document Card Item (Full Width 100%) */
 body .guidelines-page-wrapper .doc-card,
 body .guidelines-page-wrapper div.doc-card,
 body .guidelines-page-wrapper .guidelines-card,
-body .guidelines-page-wrapper .views-row:not(:has(.doc-card)),
-body.path-guidelines .views-row,
-body.path-academics-guidelines .views-row {
+body.path-guidelines .doc-card,
+body.path-academics-guidelines .doc-card {
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
@@ -230,6 +248,8 @@ body.path-academics-guidelines .views-row {
   position: relative !important;
   width: 100% !important;
   max-width: 100% !important;
+  flex: 1 1 100% !important;
+  align-self: stretch !important;
   box-sizing: border-box !important;
   margin-bottom: 12px !important;
   cursor: pointer !important;

@@ -1,0 +1,27 @@
+uuid: 9e2f3b45-8c90-5d23-0f67-222222222202
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_document
+    - node.type.attendance_criteria
+  module:
+    - file
+id: node.attendance_criteria.field_document
+field_name: field_document
+entity_type: node
+bundle: attendance_criteria
+label: 'Document File'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx txt'
+  max_filesize: ''
+  description_field: false
+field_type: file

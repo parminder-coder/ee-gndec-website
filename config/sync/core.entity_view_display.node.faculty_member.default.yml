@@ -6,9 +6,11 @@ dependencies:
     - field.field.node.faculty_member.body
     - field.field.node.faculty_member.field_designation
     - field.field.node.faculty_member.field_email
+    - field.field.node.faculty_member.field_field_photo
     - field.field.node.faculty_member.field_photo
     - node.type.faculty_member
   module:
+    - image
     - text
     - user
 id: node.faculty_member.default
@@ -23,12 +25,33 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  field_field_photo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 99
+    region: content
+  field_photo:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 100
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 102
     region: content
 hidden:
   field_designation: true
   field_email: true
-  field_photo: true

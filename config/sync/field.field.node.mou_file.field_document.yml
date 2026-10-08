@@ -1,0 +1,27 @@
+uuid: d44f5e67-1f23-7a45-2b89-666666666606
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_document
+    - node.type.mou_file
+  module:
+    - file
+id: node.mou_file.field_document
+field_name: field_document
+entity_type: node
+bundle: mou_file
+label: 'Document File'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx txt'
+  max_filesize: ''
+  description_field: false
+field_type: file
