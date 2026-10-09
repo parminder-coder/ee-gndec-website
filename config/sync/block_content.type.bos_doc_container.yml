@@ -1,8 +1,0 @@
-uuid: cdc282c1-7d96-4dd4-ba88-28f16288bcc0
-langcode: en
-status: true
-dependencies: {  }
-id: bos_doc_container
-label: 'bos doc container'
-revision: false
-description: null

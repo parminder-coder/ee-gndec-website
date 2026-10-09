@@ -6,12 +6,12 @@ dependencies:
     - system.menu.main
     - views.view.time_tables
   content:
-    - 'block_content:text_block:afcf5b19-38f2-4874-8f35-646c127d058d'
-    - 'block_content:text_block:511b3238-a334-451b-a17c-295facb441e0'
-    - 'block_content:text_block:cd31defb-6283-41ae-9faa-dd53f0a32e03'
     - 'block_content:text_block:05e7da25-4ccb-48f2-88f1-e5d9dad6099f'
-    - 'block_content:text_block:c6ccb271-643c-48f2-a972-0d2a55b4c593'
     - 'block_content:text_block:2b0193f9-a9a6-48f4-80f0-24c5a8e002b2'
+    - 'block_content:text_block:511b3238-a334-451b-a17c-295facb441e0'
+    - 'block_content:text_block:afcf5b19-38f2-4874-8f35-646c127d058d'
+    - 'block_content:text_block:c6ccb271-643c-48f2-a972-0d2a55b4c593'
+    - 'block_content:text_block:cd31defb-6283-41ae-9faa-dd53f0a32e03'
   module:
     - block_content
     - system
@@ -29,6 +29,7 @@ conditions:
     uuid: 850a1122-3511-4f2b-9801-11a221fca901
     context_mapping: {  }
     pages: |-
+      /time-tables
       /academics/time-tables
       /academics/time-tables/*
 reactions:

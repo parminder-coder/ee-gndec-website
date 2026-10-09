@@ -77,8 +77,12 @@ function gndec_preprocess_page(&$variables) {
     $variables['#attached']['library'][] = 'gndec/timetable-page-styles';
   }
 
+  if (str_contains($alias_clean, 'programme')) {
+    $variables['#attached']['library'][] = 'gndec/programmes-page-styles';
+  }
+
   // Remove system main content block output on custom static/theme pages to prevent 404 messages & duplicate block renders
-  $custom_pages = ['vision', 'academics/vision', 'mou', 'academics/mou', 'bos', 'academics/bos', 'guidelines', 'academics/guidelines', 'videos', 'academics/videos', 'time-tables', 'academics/time-tables'];
+  $custom_pages = ['vision', 'academics/vision', 'mou', 'academics/mou', 'bos', 'academics/bos', 'guidelines', 'academics/guidelines', 'videos', 'academics/videos', 'time-tables', 'academics/time-tables', 'programmes', 'academics/programmes'];
   foreach ($custom_pages as $custom_page) {
     if (str_contains($alias_clean, $custom_page)) {
       unset($variables['page']['content']['bootstrap_content']);
@@ -221,6 +225,70 @@ function gndec_preprocess_views_view_unformatted(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_views_view().
+ */
+function gndec_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() === 'academic_documents') {
+    $display_id = $view->current_display;
+    $variables['display_id'] = $display_id;
+
+    // Load term IDs by name for exact matching
+    $get_tid = function($name) {
+      $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties([
+        'vid' => 'document_category',
+        'name' => $name,
+      ]);
+      return $terms ? reset($terms)->id() : NULL;
+    };
+
+    $category_tid_map = [
+      'sanctioned_seats' => $get_tid('Sanctioned Seats'),
+      'btech_schemes' => $get_tid('B.Tech Syllabus & Study Schemes'),
+      'mtech_schemes' => $get_tid('M.Tech Syllabus & Schemes'),
+      'phd_schemes' => $get_tid('Ph.D. Syllabus & Study Scheme'),
+      'prerequisites' => $get_tid('Schematics of the Prerequisites'),
+    ];
+
+    $target_tid = $category_tid_map[$display_id] ?? NULL;
+
+    $rows = [];
+    foreach ($view->result as $row) {
+      $entity = $row->_entity ?? NULL;
+      if (!$entity && isset($row->nid)) {
+        $entity = \Drupal\node\Entity\Node::load($row->nid);
+      }
+      if ($entity && $entity->isPublished()) {
+        $doc_tid = NULL;
+        if ($entity->hasField('field_document_category') && !$entity->get('field_document_category')->isEmpty()) {
+          $doc_tid = $entity->get('field_document_category')->target_id;
+        }
+
+        if ($target_tid && (string)$doc_tid !== (string)$target_tid) {
+          continue;
+        }
+
+        $title = $entity->label();
+        $date = $entity->hasField('field_upload_date') && !$entity->get('field_upload_date')->isEmpty() ? $entity->get('field_upload_date')->value : '';
+        $pdf_url = '';
+        if ($entity->hasField('field_pdf_file') && !$entity->get('field_pdf_file')->isEmpty()) {
+          $file = $entity->get('field_pdf_file')->entity;
+          if ($file) {
+            $pdf_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+          }
+        }
+        $rows[] = [
+          'title' => $title,
+          'upload_date' => $date,
+          'pdf_url' => $pdf_url,
+        ];
+      }
+    }
+    $variables['doc_rows'] = $rows;
+  }
+}
+
+/**
  * Implements hook_preprocess_file_link().
  */
 function gndec_preprocess_file_link(&$variables) {
@@ -232,6 +300,7 @@ function gndec_preprocess_file_link(&$variables) {
     }
   }
 }
+
 
 
 

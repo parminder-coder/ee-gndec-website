@@ -1,8 +1,0 @@
-uuid: 441a6127-fce8-4634-938e-5ba69f1dc778
-langcode: en
-status: true
-dependencies: {  }
-id: faculty_card
-label: 'faculty card'
-revision: false
-description: null

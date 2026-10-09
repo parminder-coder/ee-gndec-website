@@ -1,8 +1,0 @@
-uuid: 30264d91-0f30-4a38-8359-ffc928b397a9
-langcode: en
-status: true
-dependencies: {  }
-id: files_in_mou_page
-label: 'files in mou page'
-revision: false
-description: null

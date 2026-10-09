@@ -28,7 +28,10 @@ conditions:
     negate: false
     uuid: 0740a4a9-154b-4f68-99a9-877944d1c380
     context_mapping: {  }
-    pages: "/videos\r\n/academics/videos"
+    pages: |-
+      /videos
+      /academics/videos
+      /academics/videos/*
 reactions:
   blocks:
     id: blocks

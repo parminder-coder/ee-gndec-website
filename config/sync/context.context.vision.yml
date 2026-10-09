@@ -34,7 +34,10 @@ conditions:
     negate: false
     uuid: 867faf14-d67d-4ef5-b47d-55aad3fb8e4f
     context_mapping: {  }
-    pages: /vision
+    pages: |-
+      /vision
+      /academics/vision
+      /academics/vision/*
 reactions:
   blocks:
     id: blocks

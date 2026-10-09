@@ -102,3 +102,13 @@ timetable-page-styles:
     js/timetable.js: {}
   dependencies:
     - core/drupal
+
+programmes-page-styles:
+  version: 1.x
+  css:
+    theme:
+      css/programmes.css: { weight: 102 }
+  js:
+    js/programmes.js: {}
+  dependencies:
+    - core/drupal

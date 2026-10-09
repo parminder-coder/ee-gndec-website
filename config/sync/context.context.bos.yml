@@ -28,7 +28,10 @@ conditions:
     negate: false
     uuid: 057aaebc-12c3-4f06-a669-6617d621f43f
     context_mapping: {  }
-    pages: /bos
+    pages: |-
+      /bos
+      /academics/bos
+      /academics/bos/*
 reactions:
   blocks:
     id: blocks

@@ -35,7 +35,10 @@ conditions:
     negate: false
     uuid: 199642a9-3bdd-4416-9a8b-8d1fb82d8dd3
     context_mapping: {  }
-    pages: /guidelines
+    pages: |-
+      /guidelines
+      /academics/guidelines
+      /academics/guidelines/*
 reactions:
   blocks:
     id: blocks
@@ -285,28 +288,6 @@ reactions:
         items_per_page: null
       5ae02fa1-53b0-49a0-91b4-0cb506f77849:
         uuid: 5ae02fa1-53b0-49a0-91b4-0cb506f77849
-        id: 'views_block:attendance_criteria-block_1'
-        label: ''
-        provider: views
-        label_display: '0'
-        region: content
-        weight: '-3'
-        theme: gndec
-        views_label: ''
-        items_per_page: null
-      2060e246-494b-4928-9744-6512ffe99b6a:
-        uuid: 2060e246-494b-4928-9744-6512ffe99b6a
-        id: 'views_block:blooms_taxonomy-block_1'
-        label: ''
-        provider: views
-        label_display: '0'
-        region: content
-        weight: '-5'
-        theme: gndec
-        views_label: ''
-        items_per_page: null
-      86af7973-b556-4b33-a32c-2aaa377f8a42:
-        uuid: 86af7973-b556-4b33-a32c-2aaa377f8a42
         id: 'views_block:attendance_criteria-block_1'
         label: ''
         provider: views

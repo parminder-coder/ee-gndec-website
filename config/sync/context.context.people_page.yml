@@ -29,7 +29,10 @@ conditions:
     negate: false
     uuid: c881a07e-37ff-40b3-bdbd-cbd0034f5ba0
     context_mapping: {  }
-    pages: /people
+    pages: |-
+      /people
+      /academics/people
+      /academics/people/*
 reactions:
   blocks:
     id: blocks
