@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.mou_file.body
+    - field.field.node.mou_file.field_document
     - node.type.mou_file
   module:
+    - file
     - path
     - text
 id: node.mou_file.default
@@ -28,6 +30,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_document:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   path:
     type: path

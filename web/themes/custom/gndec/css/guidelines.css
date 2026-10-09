@@ -277,27 +277,15 @@ body .guidelines-page-wrapper .views-row:not(:has(.doc-card)):hover {
   box-shadow: 0 4px 12px rgba(4, 30, 66, 0.06) !important;
 }
 
-/* Red PDF Badge Icon on Left of Card */
+/* Red PDF Badge Icon on Left of Card (Disabled to prevent duplicate icons with JS SVG badge) */
 body .guidelines-page-wrapper .doc-card::before,
 body .guidelines-page-wrapper div.doc-card::before,
 body .guidelines-page-wrapper .guidelines-card::before,
 body .guidelines-page-wrapper .views-row:not(:has(.doc-card))::before {
-  content: "" !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  align-self: center !important;
-  width: 36px !important;
-  height: 36px !important;
-  min-width: 36px !important;
-  min-height: 36px !important;
-  background-color: #fff1f0 !important;
-  border-radius: 6px !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23e74c3c'%3E%3Cpath d='M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5 13 5H9.5V1.5zM4.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1zm0 2h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 18px 18px !important;
-  flex-shrink: 0 !important;
+  display: none !important;
+  content: none !important;
+}
+
   margin-right: 14px !important;
   order: 0 !important;
 }
@@ -394,15 +382,14 @@ body .guidelines-page-wrapper a[href*=".pdf"] {
   padding: 0 !important;
 }
 
-/* Ensure right arrow is ALWAYS present after View PDF */
+/* Ensure right arrow is handled cleanly by JS button markup (Disabled ::after pseudo-element to prevent double arrow) */
 body .guidelines-page-wrapper a[href*=".pdf"]::after,
 body .guidelines-page-wrapper .view-pdf-link::after,
 body .guidelines-page-wrapper .doc-card a::after {
-  content: " \2192" !important;
-  font-weight: 700 !important;
-  display: inline-block !important;
-  margin-left: 3px !important;
+  display: none !important;
+  content: none !important;
 }
+
 
 /* View PDF link container MUST ONLY be visible if a valid PDF link is present inside it */
 body .guidelines-page-wrapper .views-field-field-document:not(:has(a[href*=".pdf"])):not(:has(a[href*="files"])):not(:has(a[href]:not([href="#"]))),

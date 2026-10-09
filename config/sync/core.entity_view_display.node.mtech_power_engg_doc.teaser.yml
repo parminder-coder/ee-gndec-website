@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.mtech_power_engg_doc.body
+    - field.field.node.mtech_power_engg_doc.field_document
     - node.type.mtech_power_engg_doc
   module:
+    - file
     - text
     - user
 id: node.mtech_power_engg_doc.teaser
@@ -21,6 +23,14 @@ content:
       trim_length: 600
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_document:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
     region: content
   links:
     settings: {  }

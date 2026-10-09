@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.mtech_power_engg_doc.body
+    - field.field.node.mtech_power_engg_doc.field_document
     - node.type.mtech_power_engg_doc
   module:
+    - file
     - path
     - text
 id: node.mtech_power_engg_doc.default
@@ -28,6 +30,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_document:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   path:
     type: path

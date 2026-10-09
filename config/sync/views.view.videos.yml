@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - field.storage.node.field_video_link
     - node.type.video
   module:
+    - link
     - node
     - text
 id: videos
@@ -86,6 +88,20 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_video_link:
+          id: field_video_link
+          table: node__field_video_link
+          field: field_video_link
+          plugin_id: field
+          label: ''
+          hide_empty: true
+          type: link
+          settings:
+            trim_length: 80
+            url_only: false
+            url_plain: false
+            rel: ''
+            target: _blank
       filters:
         status:
           id: status
@@ -129,6 +145,7 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_video_link'
   block_1:
     id: block_1
     display_title: 'Videos Block'
@@ -153,3 +170,4 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_video_link'

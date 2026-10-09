@@ -27,7 +27,7 @@
     docCards.forEach(function (card) {
       const titleEl = card.querySelector('.doc-title');
       const titleText = titleEl ? titleEl.textContent.trim().toLowerCase() : '';
-      const linkEl = card.querySelector('.doc-link, a');
+      const linkEl = card.querySelector('.doc-link, .views-field-field-document a, .field--name-field-document a, span.file a, a[href*=".pdf"]');
       const href = linkEl ? linkEl.getAttribute('href') : '';
       const iconWrapper = card.querySelector('.icon-wrapper');
 
@@ -58,10 +58,19 @@
       if (linkEl) {
         if (!href || href === '#' || href.trim() === '' || href.indexOf('javascript:') === 0) {
           linkEl.style.display = 'none';
+          linkEl.style.visibility = 'hidden';
           linkEl.classList.add('empty-link');
+          const wrapper = linkEl.closest('.views-field-field-document, .field--name-field-document, .doc-link-wrapper');
+          if (wrapper) {
+            wrapper.style.display = 'none';
+            wrapper.style.visibility = 'hidden';
+          }
         } else {
           linkEl.style.display = 'inline-flex';
           linkEl.classList.remove('empty-link');
+          if (linkEl.hasAttribute('download')) {
+            linkEl.removeAttribute('download');
+          }
           linkEl.setAttribute('target', '_blank');
           linkEl.setAttribute('rel', 'noopener noreferrer');
         }

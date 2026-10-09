@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.bos_document.body
+    - field.field.node.bos_document.field_document
     - node.type.bos_document
   module:
+    - file
     - path
     - text
 id: node.bos_document.default
@@ -28,6 +30,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_document:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   path:
     type: path

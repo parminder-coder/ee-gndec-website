@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.video.field_video_link
     - node.type.video
   module:
+    - link
     - path
     - text
 id: node.video.default
@@ -29,6 +30,14 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_video_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   path:
     type: path
@@ -62,6 +71,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  field_video_link: true
   promote: true
   sticky: true

@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.mou_file.body
+    - field.field.node.mou_file.field_document
     - node.type.mou_file
   module:
+    - file
     - text
     - user
 id: node.mou_file.default
@@ -19,6 +21,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_document:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
     region: content
   links:
     settings: {  }

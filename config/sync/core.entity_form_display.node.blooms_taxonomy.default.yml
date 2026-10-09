@@ -33,7 +33,7 @@ content:
     third_party_settings: {  }
   field_document:
     type: file_generic
-    weight: 122
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber

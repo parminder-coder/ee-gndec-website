@@ -31,7 +31,7 @@ conditions:
     negate: false
     uuid: 71ab4f2c-ee45-4940-82c9-93874e8d73b9
     context_mapping: {  }
-    pages: /mou
+    pages: /academics/mou
 reactions:
   blocks:
     id: blocks

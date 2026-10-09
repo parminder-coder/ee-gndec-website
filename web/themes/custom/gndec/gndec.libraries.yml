@@ -7,6 +7,7 @@ global-styling:
       css/header.css: { weight: 98 }
       css/style.css: { weight: 100 }
       css/colors.css: { weight: 99 }
+      css/people.css: { weight: 101 }
 
 
 header-styles:
@@ -91,3 +92,13 @@ mou-page-styles:
       css/mou.css: { weight: 102 }
   js:
     js/mou.js: {}
+
+timetable-page-styles:
+  version: 1.x
+  css:
+    theme:
+      css/timetable.css: { weight: 102 }
+  js:
+    js/timetable.js: {}
+  dependencies:
+    - core/drupal

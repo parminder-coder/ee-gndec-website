@@ -206,23 +206,6 @@ reactions:
         context_mapping: {  }
         view_mode: full
         third_party_settings: {  }
-      78bad98b-362f-422c-97e3-a6877786cf51:
-        uuid: 78bad98b-362f-422c-97e3-a6877786cf51
-        id: 'views_block:attendance_criteria-block_1'
-        label: ''
-        provider: views
-        label_display: '0'
-        region: content
-        weight: '-3'
-        custom_id: views_block_attendance_criteria_block_1
-        theme: gndec
-        css_class: ''
-        unique: 0
-        context_id: guidelines
-        context_mapping: {  }
-        views_label: ''
-        items_per_page: null
-        third_party_settings: {  }
       fb5ae7ec-c139-4b7b-950a-2e8fedd1cf96:
         uuid: fb5ae7ec-c139-4b7b-950a-2e8fedd1cf96
         id: 'block_content:d97fdba5-bbbd-4589-a047-669a6dbb21af'
@@ -272,23 +255,6 @@ reactions:
         context_mapping: {  }
         view_mode: full
         third_party_settings: {  }
-      bbd09bcc-bb07-491a-a880-1097a564238f:
-        uuid: bbd09bcc-bb07-491a-a880-1097a564238f
-        id: 'views_block:blooms_taxonomy-block_1'
-        label: ''
-        provider: views
-        label_display: '0'
-        region: content
-        weight: '-5'
-        custom_id: views_block_blooms_taxonomy_block_1
-        theme: gndec
-        css_class: ''
-        unique: 0
-        context_id: guidelines
-        context_mapping: {  }
-        views_label: ''
-        items_per_page: null
-        third_party_settings: {  }
       c0bc4e57-4328-4f38-bfd1-b7d201376d12:
         uuid: c0bc4e57-4328-4f38-bfd1-b7d201376d12
         id: 'views_block:undergraduate_students-block_1'
@@ -306,6 +272,50 @@ reactions:
         views_label: ''
         items_per_page: null
         third_party_settings: {  }
+      b5e1d8ec-8f4e-46c2-ad17-34cb1365ca31:
+        uuid: b5e1d8ec-8f4e-46c2-ad17-34cb1365ca31
+        id: 'views_block:blooms_taxonomy-block_1'
+        label: ''
+        provider: views
+        label_display: '0'
+        region: content
+        weight: '-5'
+        theme: gndec
+        views_label: ''
+        items_per_page: null
+      5ae02fa1-53b0-49a0-91b4-0cb506f77849:
+        uuid: 5ae02fa1-53b0-49a0-91b4-0cb506f77849
+        id: 'views_block:attendance_criteria-block_1'
+        label: ''
+        provider: views
+        label_display: '0'
+        region: content
+        weight: '-3'
+        theme: gndec
+        views_label: ''
+        items_per_page: null
+      2060e246-494b-4928-9744-6512ffe99b6a:
+        uuid: 2060e246-494b-4928-9744-6512ffe99b6a
+        id: 'views_block:blooms_taxonomy-block_1'
+        label: ''
+        provider: views
+        label_display: '0'
+        region: content
+        weight: '-5'
+        theme: gndec
+        views_label: ''
+        items_per_page: null
+      86af7973-b556-4b33-a32c-2aaa377f8a42:
+        uuid: 86af7973-b556-4b33-a32c-2aaa377f8a42
+        id: 'views_block:attendance_criteria-block_1'
+        label: ''
+        provider: views
+        label_display: '0'
+        region: content
+        weight: '-3'
+        theme: gndec
+        views_label: ''
+        items_per_page: null
     include_default_blocks: 0
     saved: false
 weight: 0

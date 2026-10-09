@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.blooms_taxonomy.body
+    - field.field.node.blooms_taxonomy.field_document
     - node.type.blooms_taxonomy
   module:
+    - file
     - text
     - user
 id: node.blooms_taxonomy.teaser
@@ -21,6 +23,14 @@ content:
       trim_length: 600
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_document:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
     region: content
   links:
     settings: {  }

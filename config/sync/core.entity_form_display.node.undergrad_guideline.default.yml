@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.undergrad_guideline.body
+    - field.field.node.undergrad_guideline.field_document
     - node.type.undergrad_guideline
   module:
+    - file
     - path
     - text
 id: node.undergrad_guideline.default
@@ -28,6 +30,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_document:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   path:
     type: path

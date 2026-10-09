@@ -1,4 +1,4 @@
-uuid: f66f7a89-3b45-9c67-4d01-888888888808
+uuid: 821d2e74-48f0-431d-9724-e687d9805a14
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,8 @@ id: node.mtech_power_engg_doc.field_document
 field_name: field_document
 entity_type: node
 bundle: mtech_power_engg_doc
-label: 'Document File'
-description: ''
+label: Document
+description: 'Upload document file (PDF, DOC, DOCX)'
 required: false
 translatable: true
 default_value: {  }
@@ -20,8 +20,8 @@ default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'pdf doc docx txt'
+  file_directory: documents/mtech_power_engg_doc
+  file_extensions: 'pdf doc docx'
   max_filesize: ''
   description_field: false
 field_type: file
